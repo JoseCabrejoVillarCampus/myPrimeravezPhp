@@ -1,0 +1,58 @@
+<?php
+    
+    header("Content-type:application/json; charset:UTF-8");
+
+    $nombre = (string) "Miguel Angel";
+    $apellido = (string) "Garcez";
+    echo <<<JSON
+    {
+        "Nombre": '$nombre',
+        "Apellido": '$apellido'
+    }
+    JSON;
+
+?>
+
+<?php
+    header("Content-type:application/json");
+
+    $obj = (object) [];
+
+    $obj->nombre = (string) "Miguel";
+    $obj->apellido = (string) "Castro";
+    $obj->edad = (integer) 15;
+
+    echo json_encode($obj);
+
+
+?>
+let btn = document.querySelector('#btn');
+let URI = "http://localhost/SpUkM01-085/myPrimeravezPhp"
+btn.addEventListener("click",async(e)=>{
+    let res = await((await fetch(`${URI}/api.php`)).json());
+    console.log(res);
+})
+
+
+<?php
+    header("Content-type:application/json");
+    var_dump ($_GET);
+
+    // $obj = (object) [];
+
+    // $obj->nombre = (string) "Miguel";
+    // $obj->apellido = (string) "Castro";
+    // $obj->edad = (integer) 15;
+
+    echo json_encode($_GET);
+    
+
+?>
+
+let btn = document.querySelector('#btn');
+let URI = "http://localhost/SpUkM01-085/myPrimeravezPhp"
+btn.addEventListener("click",async(e)=>{
+    let res = await((await fetch(`${URI}/api.php?nombre=miguel`)).text());
+    /* document.querySelector("pre").innerHTML = res; */
+    console.log(res);
+})
